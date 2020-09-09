@@ -35,23 +35,15 @@ Run `bundle install` to install all the gems.
 
 * Start it in the server
 run `rackup` or `shutgun`
-$ rackup=>
-Thin web server (v1.7.2 codename Bachmanity)
-Maximum connections set to 1024
-Listening on localhost:9292, CTRL+C to stop
+$ rackup
 
 copy  `localhost:9292`  and paste it in the browser.
 
-$ shotgun =>
-== Shotgun/Thin on http://127.0.0.1:9393/
-Thin web server (v1.7.2 codename Bachmanity)
-Maximum connections set to 1024
-Listening on 127.0.0.1:9393, CTRL+C to stop
-
+$ shotgun 
 copy `http://127.0.0.1:9393/` and paste it in the browser.
-ready to use it.
+Ready to use.
 
-I recomend 
+
 
 ## Usage
 
