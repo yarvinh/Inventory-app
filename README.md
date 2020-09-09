@@ -1,44 +1,73 @@
-# Quiz
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/quiz`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Inventory tracker
+This is a MVC ruby and sintra app , this app is for tracking sneaker in the inventory.
+Architecture
+I designed the database schema as follow: Sneakers belongs to brands, sneaker belongs to users, brands belongs to the user who created it, users have many brands, brands have many sneakers and users have many sneakers through brands.
 
-TODO: Delete this and the text above, and describe your gem
+## Features
+Create and save to the database
+Users can create an account and login. Logged in users can create a brand of a sneaker for example Nike. They can also store additional details such as style, size, gender, price, quantity and barcode data.
+
+* Edit user info
+The users can edit their business name, username, email, and change their password.
+
+* Edit brands
+Users can edit/rename brands.
+
+* Edit sneaker
+Users can edit their sneakers, can add to the quantity, and can subtract from sneaker quantity.
+
+* Delete Users and brands
+Users can delete their own account. Deleting an account also deletes all the brands and sneakers that are saved for the account. Users can delete individual and multiple brands, when a brand is deleted, the sneakers in the brand are deleted too, and users can delete individual and multiple sneakers.
 
 ## Installation
+* First step
+clone it. run `git clone https://github.com/nakajima/rack-flash.git`
+$ git clone https://github.com/nakajima/rack-flash.git
 
-Add this line to your application's Gemfile:
+* Once you clone it, next step.
+Run `bundle install` to install all the gems. 
+% bundle install 
 
-```ruby
-gem 'quiz'
-```
+* If Migrations are pending. Run `rake db:migrate` to resolve the issue.'
+% rake db:migrate  
 
-And then execute:
 
-    $ bundle install
+* Start it in the server
+run `rackup` or `shutgun`
+$ rackup=>
+Thin web server (v1.7.2 codename Bachmanity)
+Maximum connections set to 1024
+Listening on localhost:9292, CTRL+C to stop
 
-Or install it yourself as:
+copy  `localhost:9292`  and paste it in the browser.
 
-    $ gem install quiz
+$ shotgun =>
+== Shotgun/Thin on http://127.0.0.1:9393/
+Thin web server (v1.7.2 codename Bachmanity)
+Maximum connections set to 1024
+Listening on 127.0.0.1:9393, CTRL+C to stop
+
+copy `http://127.0.0.1:9393/` and paste it in the browser.
+ready to use it.
+
+I recomend 
 
 ## Usage
 
-TODO: Write usage instructions here
+Follow intructions
 
-## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/quiz. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/quiz/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/yarvinh/Inventory-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/yarvinh/Inventory-app/blob/master/code_of_conduct.md).
 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This MVC app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Everyone interacting in the Quiz project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/quiz/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the MVC Inventory-app codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/yarvinh/Inventory-app/blob/master/code_of_conduct.md).
