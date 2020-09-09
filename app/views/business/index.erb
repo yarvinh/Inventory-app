@@ -1,0 +1,23 @@
+
+   
+<h1><%=@user.name%></h1>
+<div>
+    <form action="/brand/new" method="POST">
+        Submit New Brand:<input type="text" name="name" placeholder="Name"> <br>
+        <input type="submit" value="submit">
+    </form>
+</div>
+
+<div>
+    <form method="POST" action="/brand/delete">
+        <h3> Select a Brand to see the inventory. </h3>
+        <a> Checked a brand, press trash to delete. </a>
+        <input type="submit" value="Trash">
+        <ul>
+            <% @user.brands.each do |brand| %>   
+                <li> <input type="checkbox" name="brand_ids[]"value="<%=brand.id%>"><a href="/brand/<%=brand.slug%>"> <%=brand.name%></input> </a></li>  
+            <%end%>  
+        </ul>
+    </form>
+</div>  
+       

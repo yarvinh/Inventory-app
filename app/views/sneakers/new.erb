@@ -1,0 +1,65 @@
+<div>
+    <form method="POST" action="/sneaker/new" >
+        <h3> Submit New Sneaker </h3>
+        <p>Size: <input type="text" name="sneaker[size]" 
+            <%if !params.empty?%>
+                value="<%=params["sneaker"]["size"]%>" 
+            <%end%>
+        ></p>
+
+        <p>Gender: <input type="text" name="sneaker[gender]" 
+            <% if !params.empty?%> 
+                value="<%=params["sneaker"]["gender"]%>" 
+            <%end%>
+        ></p>
+
+        <p>Style: <input type="text" name="sneaker[style]" 
+            <%if !params.empty?%> 
+                value="<%=params["sneaker"]["style"]%>"
+            <%end%>
+        ></p>
+
+        <p>Price: <input type="text" name="sneaker[price]" 
+            <%if !params.empty?%> 
+                value="<%=params["sneaker"]["price"]%>" 
+            <%end%>
+        ></p>
+
+        <p>Quantity: <input type="text" name="sneaker[quantity]" 
+            <%if !params.empty?%>
+                value="<%=params["sneaker"]["quantity"]%>"
+        <%end%>
+        ></p>
+
+        <p>Color: <input type="text" name="sneaker[color]" 
+            <%if !params.empty?%>
+                value="<%=params["sneaker"]["color"]%>"
+            <%end%>
+        ></p>
+
+        <p>Bar Code: <input type="text" name="sneaker[bar_code]" 
+            <%if !params.empty?%> 
+                value="<%=params["sneaker"]["bar_code"]%>"
+            <%end%>
+        ></p>
+
+        <p><%=@message_1%></p>
+        <h3>Existing brands</h3>
+
+            <p> Choose or create a new sneaker brand.</p>
+                <% @brands.each do |brand|%>
+                <input type="radio" name="brand_id" value="<%=brand.id%>" id="<%=brand.id%>"><%=brand.name%></input><br>
+            <%end%>  
+        
+        New Brand:<input type="text" name="name" placeholder="Name"> <br>
+        <input type="submit" value="submit">
+  
+        <p><%=@message_2%></p>
+    </form>
+</div>
+
+
+
+
+
+

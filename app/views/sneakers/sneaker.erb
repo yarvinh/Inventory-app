@@ -1,0 +1,29 @@
+
+<a href="/brand/<%=@brand.slug%>"><h3> <%=@brand.name%> </h3></a>
+<h3> <%= @sneaker.style%> </h3>
+
+<div> 
+       <p>  Gender: <%=@sneaker.gender%>, Size: <%=@sneaker.size%>, QTY: <%=@sneaker.quantity%>, Bar Code <%=@sneaker.bar_code%> Price: $<%=@sneaker.price%></p>
+       <a href="/sneaker/<%=@sneaker.id%>/edit">Edit Sneaker</a>
+</div
+
+
+<div>
+    <form action="/sneaker/<%=@sneaker.id%>/add" method="POST">
+       <h3> Add to sneaker quantity. </h3>
+       <p>Enter Quantity: <input type="text" name="quantity" ></p>
+       <input type="submit" value="Save Change.">
+    </form>
+</div>
+
+<div>
+    <form action="/sneaker/<%=@sneaker.id%>/subtract" method="POST">
+       <h3> Subtract to sneaker quantity. </h3>
+       <p>Enter Quantity: <input type="text" name="quantity" ></p>
+       <input type="submit" value="Save Change.">
+    </form>
+</div>
+
+
+
+

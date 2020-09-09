@@ -1,0 +1,24 @@
+<div>
+    <h3> Type changes and save </h3>
+    <form action="/sneaker/<%=@sneaker.id%>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+  
+        <p>Size: <input type="text" name="sneaker[size]" value="<%=@sneaker.size%>"></p>
+        <p>Gender: <input type="text" name="sneaker[gender]" value="<%=@sneaker.gender%>"></p>
+        <p>Style: <input type="text" name="sneaker[style]" value="<%=@sneaker.style%>"></p>
+        <p>Price: <input type="text" name="sneaker[price]" value="<%=@sneaker.price%>"></p>
+        <p>Quantity: <input type="text" name="sneaker[quantity]" value="<%=@sneaker.quantity%>"></p>
+        <p>Color: <input type="text" name="sneaker[color]" value="<%=@sneaker.color%>"></p>
+        <p>Bar Code: <input type="text" name="sneaker[bar_code]" value="<%=@sneaker.bar_code%>"></p>
+        <p> Create a new brand or select one from existing.</p>
+        Create New Brand:<input type="text" name="name" placeholder="Type new brand"> <br>
+        <p> Existing brands </p>
+        <% @brands.each do |brand|%>
+            <input type="radio" <% if @sneaker.brand.id == brand.id %>
+                checked 
+            <%end%> 
+            name="brand_id" value="<%=brand.id%>" id="<%=brand.id%>"><%=brand.name%></input><br>
+        <%end%>
+        <input type="submit" value="Save Change.">
+    </form>
+</div>

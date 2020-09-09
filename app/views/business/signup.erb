@@ -1,0 +1,14 @@
+
+<a href="/" >Home</a>
+<h3> Create a business account. </3>
+<div>
+   
+    <form method="POST" action="/business/signup">
+        <p> Store Name:     <input type="text" name="user[name]" id="name"> </p><br> 
+        <p>UserName: <input type="text" name="user[username]" id="username"></p><br>
+        <p>Password: <input type="password" name="user[password]" id="password"></p><br>
+        <p>Email:    <input type="text" name="user[email]" id="email"></p><br>
+        <input type="submit"  value="SignUp">
+    <form>
+    <p><%=@massage%></p>
+</div>

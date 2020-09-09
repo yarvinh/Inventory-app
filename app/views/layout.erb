@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Inventory Traker</title>
+  </head>
+  <body>
+
+    <nav> 
+        <%if session[:user_id] != nil %>
+            <a href="/business">Home</a>
+            <a class="active" href="/sneaker/new">Crear New Sneaker</a>
+            <a href="/business/signout">Sign Out</a>
+            <a href="/business/user-info">Login & security</a>
+        <%end%>
+    </nav>
+
+    <%=yield %>
+
+     
+     
+  </body>
+</html>

@@ -1,0 +1,22 @@
+
+<div>
+  <form  method="get" action="/business/edit-user">
+    Name: <%=@user.name%> <br>
+    Email: <%=@user.email%> <br>
+    UserName: <%=@user.username%> <br> 
+    <input type="submit" value="Edit User Info">
+  </form>
+</div>
+
+<div>
+  <form action="/business/<%=@user.id%>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Account">
+  </form>
+</div>
+
+<div>
+  <form action="/business/password" >
+    <input type="submit" value="Change Password">
+  </form>
+</div>

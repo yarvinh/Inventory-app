@@ -1,0 +1,9 @@
+
+<div>
+    <h3> Type changes and save </h3>
+    <form action="/brand/<%=@brand.id%>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+        <p>Brand: <input type="text" name="brand[name]" value="<%=@brand.name%>"></p>
+        <input type="submit" value="Save Change.">
+    </form>
+<div>

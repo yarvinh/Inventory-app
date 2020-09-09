@@ -1,0 +1,28 @@
+<div>
+    <form action="/business/<%=@user.id%>/edit" method="POST">
+        <lable>Current name: <%=@user.name%> </lable> <br>
+        <input id="hidden" type="hidden" name="_method" value="patch"><br>
+        Name: <input type="text" name="user[name]"><br>
+        <input type="submit" value="Save Change">
+    </form>
+</div>
+
+<div>
+<form action="/business/<%=@user.id%>/edit" method="POST">
+        <lable> Current Email: <%=@user.email%> </lable> <br>
+        <input id="hidden" type="hidden" name="_method" value="patch"><br>
+        Email: <input type="text" name="user[email]"><br>
+        Confirm Email: <input type="text" name="email" ><br>
+        <input type="submit" value="Save Change">
+    </form>
+</div>
+
+<div>
+    <form action="/business/<%=@user.id%>/edit" method="POST">
+        <lable> Current UserName: <%=@user.username%> </lable> <br>
+        <input id="hidden" type="hidden" name="_method" value="patch"><br>
+        User Name: <input type="text" name="user[username]" > <br>
+        Confirm UserName: <input type="text" name="username" > <br>
+        <input type="submit" value="Save Change">
+    </form>
+</div>

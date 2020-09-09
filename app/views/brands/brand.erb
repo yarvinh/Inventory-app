@@ -1,0 +1,23 @@
+
+<div>
+    <a href="/brand/<%=@brand.id%>/edit">Edit Brand</a>
+    <h3><%=@brand.name%></h3>
+    
+    <form method="POST" action="/sneaker/<%=@brand.slug%>/search">
+        <input type="text" name="search" placeholder="Style or Bar code. ">
+        <input type="submit" value="Search" >
+    </form>
+</div>
+
+<div>
+   <p> Checked a sneaker, press trash to delete.</p>
+    <form method="post" action="/sneaker/<%=@brand.slug%>/delete">
+    <input type="submit" value="Trash">
+    <ul>
+       <%@brand.sneakers.each do |sneaker|%>
+           <li> <input type="checkbox" name="sneaker_ids[]" value="<%= sneaker.id %>" >  <a href="/sneaker/<%=sneaker.id%>">Style: <%=sneaker.style%>, Gender: <%=sneaker.gender%>, Size: <%=sneaker.size%>, QTY: <%=sneaker.quantity%>, Bar Code <%=sneaker.bar_code%> </a></li> 
+        <%end%>
+     </ul>
+    </form>
+   
+</div>
