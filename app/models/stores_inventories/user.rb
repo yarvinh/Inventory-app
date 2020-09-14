@@ -59,9 +59,9 @@ class User < ActiveRecord::Base
             index = not_empty.index(false)
             "Please enter your #{user_info[index]}."
         elsif !user.empty?
-            "User already exist."
+            "User already exist"
         elsif params[:password].size < 8
-            "Password must be 8 or more characters." 
+            "Password must be 8 or more characters" 
         end
        
        end

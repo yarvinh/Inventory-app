@@ -43,7 +43,7 @@ class BusinessUsersController < ApplicationController
          flash[:notice] = "No password was entered"
          erb :'business/login'
       else
-         flash[:notice]="Invalid username or password"
+         flash[:notice]= "Invalid username or password"
          erb :'business/login'
       end
    end
