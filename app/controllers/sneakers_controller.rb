@@ -19,7 +19,7 @@ class SneakersController < ApplicationController
             @brand = Brand.find_or_create_user_brand(user,params[:name].strip)
             error_or_sneaker_intance = Sneaker.find_or_create_sneaker(@brand,params[:sneaker]) 
             if error_or_sneaker_intance .class == String
-                @message_1 = error_or_sneaker_intance 
+                flash[:message_1] = error_or_sneaker_intance 
                 erb :"sneakers/new"  
             else 
                 redirect "/brand/#{@brand.slug}"
@@ -28,13 +28,13 @@ class SneakersController < ApplicationController
             @brand = Brand.find_by(id: params[:brand_id])
             error_or_sneaker_intance = Sneaker.find_or_create_sneaker(@brand,params[:sneaker]) 
             if error_or_sneaker_intance .class == String
-                @message_1 = error_or_sneaker_intance 
+                flash[:message_1] = error_or_sneaker_intance 
                 erb :"sneakers/new"  
             else 
                 redirect "/brand/#{@brand.slug}"
             end
         else
-            @message_2 = "No brand was selected. Please Select or create a new brand."
+            flash[:message_2] = "No brand was selected. Please Select or create a new brand"
             erb :"sneakers/new"
         end
     end

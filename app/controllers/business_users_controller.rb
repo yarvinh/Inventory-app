@@ -5,14 +5,14 @@ class BusinessUsersController < ApplicationController
    get '/business/signup' do
       erb :"business/signup"
    end
-# Has a error message 
+# Has error message 
    post '/business/signup' do     
       it_did = User.find_or_create_user(params[:user])
       if it_did.class != String
          session[:user_id] = it_did.id
          redirect '/business'
       else
-         @massage  = it_did
+         flash[:message] = it_did
          erb :'business/signup'
       end
    end 
@@ -30,21 +30,20 @@ class BusinessUsersController < ApplicationController
        erb :'business/login'
    end
 
-# has a error message 
+# has error message 
    post '/business/login' do
-      user = User.find_by(username: params[:username])
+      user = User.find_by(username: params[:username].strip)
       if user && user.authenticate(params[:password])
          session[:user_id] = user.id
          redirect "/business"
       elsif  params[:username].strip.empty?
-         flash[:notice] = "No username was entered."
-
-         redirect:'/business/login'
+         flash[:notice] = "No username was entered"
+         erb :'business/login'
       elsif params[:password].strip.empty?
-         flash[:notice] = "No password was entered."
+         flash[:notice] = "No password was entered"
          erb :'business/login'
       else
-         flash[:notice]="Invalid username or password."
+         flash[:notice]="Invalid username or password"
          erb :'business/login'
       end
    end
@@ -75,15 +74,11 @@ class BusinessUsersController < ApplicationController
 # ****************
     patch '/business/:id/edit' do
       @user = User.find_by(id: params[:id]) 
-      if params[:user][:email]  == params[:email] && params[:user][:username] == nil
-         @user.edit(params[:user])
-      elsif params[:user][:username]  == params[:username] && params[:user][:email] == nil
-         @user.edit(params[:user])
-      elsif params[:user][:name] != nil
-         @user.edit(params[:user])
-      end
-      # @user.update(params[:user])
-       redirect '/business/edit-user'
+      edited_or_message = @user.edit(params)
+      flash[:notice] = edited_or_message 
+      erb :'business/edit'  
+      # redirect '/business/edit-user'   
+   
     end
 #****************
     delete '/business/:id' do
@@ -103,7 +98,7 @@ class BusinessUsersController < ApplicationController
          redirect "/"
       end
    end
-#Has a error message
+#Has error message
    post '/business/password' do
       @user = User.find(session[:user_id])
       if @user.authenticate(params[:old][:password]) && params[:new][:password] == params[:password] && params[:new][:password].size > 7
@@ -111,12 +106,9 @@ class BusinessUsersController < ApplicationController
          @user.save
          redirect '/business/signout'
       else
-         @message = "Passwords do not match, or password has less than 8 characters "
+         flash[:message] = "Passwords do not match, or password has less than 8 characters"
          erb :'business/password'
       end     
    end
-
-
-
 
 end

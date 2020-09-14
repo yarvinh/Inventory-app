@@ -4,11 +4,25 @@
 <div>
    
     <form method="POST" action="/business/signup">
-        <p> Store Name:     <input type="text" name="user[name]" id="name"> </p><br> 
-        <p>UserName: <input type="text" name="user[username]" id="username"></p><br>
-        <p>Password: <input type="password" name="user[password]" id="password"></p><br>
-        <p>Email:    <input type="text" name="user[email]" id="email"></p><br>
+        <p> Store Name: <input type="text" name="user[name]" id="name"  
+            <%if !params.empty?%> 
+                value="<%=params["user"]["name"]%>" 
+            <%end%>
+        > </p><br> 
+        <p>UserName: <input type="text" name="user[username]" id="username"
+            <%if !params.empty?%> 
+                value="<%=params["user"]["username"]%>" 
+            <%end%>
+        ></p><br>
+        <p>Password: <input type="password" name="user[password]" id="password" ></p><br>
+
+        <p>Email: <input type="text" name="user[email]" id="email"
+            <%if !params.empty?%> 
+                value="<%=params["user"]["email"]%>" 
+            <%end%>
+        ></p><br>
         <input type="submit"  value="SignUp">
     <form>
-    <p><%=@massage%></p>
+    <p><%=flash[:message]%></p>
+
 </div>

@@ -9,6 +9,7 @@ class CreateSneakers < ActiveRecord::Migration[6.0]
       t.string :color
       t.string :bar_code
       t.string :brand_id
+      t.string :user_id
     end
   end
 end

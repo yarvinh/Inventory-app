@@ -1,5 +1,6 @@
 class Sneaker < ActiveRecord::Base
     belongs_to :brand
+    belongs_to :user
 
       def edit(params)
          params.each{|k,v| 
@@ -9,7 +10,7 @@ class Sneaker < ActiveRecord::Base
         }
          self.save
       end
-    # if it do not find or create, display a message.
+  
       def self.find_or_create_sneaker(brand,sneaker)
        empty_inputs = sneaker.map {|k,v| v.strip.empty?}
         sneakers = brand.sneakers.select{|s| s.bar_code == sneaker["bar_code"].strip}
@@ -19,7 +20,7 @@ class Sneaker < ActiveRecord::Base
             sneaker.save
             sneaker
         elsif empty_inputs.include?(true)
-            "Empty Input. Check for empty input"
+            "Empty Input. Check for empty inputs."
         else
             sneakers[0]
         end

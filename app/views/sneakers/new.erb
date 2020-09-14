@@ -43,10 +43,10 @@
             <%end%>
         ></p>
 
-        <p><%=@message_1%></p>
+        <p><%=flash[:message_1]%></p>
         <h3>Existing brands</h3>
 
-            <p> Choose or create a new sneaker brand.</p>
+            <p> Choose or create a new brand.</p>
                 <% @brands.each do |brand|%>
                 <input type="radio" name="brand_id" value="<%=brand.id%>" id="<%=brand.id%>"><%=brand.name%></input><br>
             <%end%>  
@@ -54,7 +54,7 @@
         New Brand:<input type="text" name="name" placeholder="Name"> <br>
         <input type="submit" value="submit">
   
-        <p><%=@message_2%></p>
+        <p><%=flash[:message_2]%></p>
     </form>
 </div>
 
